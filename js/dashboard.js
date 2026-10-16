@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const focus = tasks.filter(t => t.status !== "done" && daysUntil(t.due) <= 7).slice(0, 5);
     todayList.innerHTML = focus.length
       ? focus.map(taskRowHTML).join("")
-      : `<div class="empty">🎉 Nothing due this week. Enjoy the break!</div>`;
+      : `<div class="empty">Nothing due this week.</div>`;
 
     // --- Progress ---
     const done = tasks.filter(t => t.status === "done").length;

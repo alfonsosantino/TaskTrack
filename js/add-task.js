@@ -63,10 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (editing) {
       Store.update(editId, data);
-      showToast("✓ Task updated");
+      showToast("Task updated");
     } else {
       Store.add(data);
-      showToast("✓ Task saved");
+      showToast("Task saved");
     }
     setTimeout(() => (location.href = "index.html"), 700);
   });

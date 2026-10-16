@@ -26,13 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!name) { $("p-name").focus(); return showToast("Please enter your name"); }
     Settings.set({ name, program: $("p-program").value.trim() || "—", year: $("p-year").value });
     renderHero();
-    showToast("✓ Profile saved");
+    showToast("Profile saved");
   });
 
   $("s-reminder").addEventListener("change", e => {
     Settings.set({ reminderDays: Number(e.target.value) });
     try { sessionStorage.removeItem("tasktrack.reminderDismissed"); } catch (err) {}
-    showToast("✓ Reminder preference saved");
+    showToast("Reminder preference saved");
   });
 
   $("s-theme").addEventListener("change", e => {
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const browserBtn = $("s-browser");
   function syncBrowserBtn() {
     if (!("Notification" in window)) { browserBtn.textContent = "UNSUPPORTED"; browserBtn.disabled = true; return; }
-    if (Notification.permission === "granted") { browserBtn.textContent = "ENABLED ✓"; browserBtn.disabled = true; }
+    if (Notification.permission === "granted") { browserBtn.textContent = "ENABLED"; browserBtn.disabled = true; }
     if (Notification.permission === "denied") { browserBtn.textContent = "BLOCKED"; browserBtn.disabled = true; }
   }
   browserBtn.addEventListener("click", async () => {

@@ -13,14 +13,14 @@ document.addEventListener("DOMContentLoaded", () => {
     return `
       <article class="kcard" draggable="true" data-id="${t.id}">
         <div class="row">
-          <strong>${t.status === "done" ? "✓ " : ""}${escapeHTML(t.name)}</strong>
+          <strong>${escapeHTML(t.name)}</strong>
           <span class="badge ${t.priority}">${capitalize(t.priority)}</span>
         </div>
         <div class="t-meta">${escapeHTML(t.subject)} • ${dueLabel(t.due)}</div>
         <div class="moves">
-          ${i > 0 ? `<button class="btn ghost small" data-move="-1" aria-label="Move back">◀</button>` : ""}
-          ${i < 2 ? `<button class="btn ghost small" data-move="1" aria-label="Move forward">▶</button>` : ""}
-          <a class="icon-btn" href="add-task.html?id=${t.id}" aria-label="Edit task" style="margin-left:auto">✎</a>
+          ${i > 0 ? `<button class="btn ghost small" data-move="-1" aria-label="Move back">${icon("left")}</button>` : ""}
+          ${i < 2 ? `<button class="btn ghost small" data-move="1" aria-label="Move forward">${icon("right")}</button>` : ""}
+          <a class="icon-btn" href="add-task.html?id=${t.id}" aria-label="Edit task" style="margin-left:auto">${icon("edit")}</a>
         </div>
       </article>`;
   }
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const task = Store.get(id);
     if (!task || task.status === status) return;
     Store.update(id, { status });
-    showToast(status === "done" ? `🎉 “${task.name}” completed!` :
+    showToast(status === "done" ? `“${task.name}” completed` :
       `“${task.name}” moved to ${status === "todo" ? "To Do" : "In Progress"}`);
     render();
   }

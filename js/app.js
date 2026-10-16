@@ -140,13 +140,33 @@ function byUrgency(a, b) {
   return PRIORITY_RANK[a.priority] - PRIORITY_RANK[b.priority];
 }
 
+/* ---------- Icons (inline SVG, no emoji) ---------- */
+const ICON_PATHS = {
+  home: '<path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
+  plus: '<path d="M12 5v14M5 12h14"/>',
+  calendar: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/>',
+  chart: '<path d="M4 20V11M10 20V5M16 20v-6M2 20h20"/>',
+  user: '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>',
+  check: '<path d="M5 12.5 10 17 19 7"/>',
+  menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+  close: '<path d="M6 6l12 12M18 6 6 18"/>',
+  edit: '<path d="M4 20h4L19 9l-4-4L4 16z"/>',
+  trash: '<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>',
+  left: '<path d="M15 6l-6 6 6 6"/>',
+  right: '<path d="M9 6l6 6-6 6"/>',
+  bell: '<path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/>'
+};
+function icon(name) {
+  return `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${ICON_PATHS[name]}</svg>`;
+}
+
 /* ---------- Layout: navbar + footer ---------- */
 const NAV_ITEMS = [
-  { href: "index.html", label: "Dashboard", icon: "🏠" },
-  { href: "add-task.html", label: "Add Task", icon: "➕" },
-  { href: "calendar.html", label: "Calendar", icon: "📅" },
-  { href: "progress.html", label: "Progress", icon: "📊" },
-  { href: "profile.html", label: "Profile", icon: "👤" }
+  { href: "index.html", label: "Dashboard", icon: "home" },
+  { href: "add-task.html", label: "Add Task", icon: "plus" },
+  { href: "calendar.html", label: "Calendar", icon: "calendar" },
+  { href: "progress.html", label: "Progress", icon: "chart" },
+  { href: "profile.html", label: "Profile", icon: "user" }
 ];
 
 function renderLayout() {
@@ -157,13 +177,13 @@ function renderLayout() {
   header.innerHTML = `
     <div class="inner">
       <a class="brand" href="index.html" aria-label="TaskTrack home">
-        <span class="brand-logo">✓</span> TASKTRACK
+        <span class="brand-logo">${icon("check")}</span> TASKTRACK
       </a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">${icon("menu")}</button>
       <ul class="nav-links">
         ${NAV_ITEMS.map(i => `
           <li><a href="${i.href}" class="${i.href === page ? "active" : ""}">
-            <span aria-hidden="true">${i.icon}</span>${i.label}</a></li>`).join("")}
+            ${icon(i.icon)}${i.label}</a></li>`).join("")}
       </ul>
     </div>`;
   document.body.prepend(header);
@@ -232,9 +252,9 @@ function renderReminderBanner(container) {
   banner.className = "reminder";
   banner.setAttribute("role", "alert");
   banner.innerHTML = `
-    <span aria-hidden="true">⏰</span>
+    <span class="reminder-icon">${icon("bell")}</span>
     <span>Reminder: ${names.join(", ")}${extra}.</span>
-    <button class="icon-btn close" aria-label="Dismiss reminder">✕</button>`;
+    <button class="icon-btn close" aria-label="Dismiss reminder">${icon("close")}</button>`;
   banner.querySelector(".close").addEventListener("click", () => {
     banner.remove();
     try { sessionStorage.setItem("tasktrack.reminderDismissed", "1"); } catch (e) {}
@@ -282,7 +302,7 @@ function taskRowHTML(t) {
   const overdue = t.status !== "done" && daysUntil(t.due) < 0;
   return `
     <div class="task-item ${t.status === "done" ? "done" : ""}" data-id="${t.id}">
-      <button class="check" data-act="toggle" aria-label="Mark ${escapeHTML(t.name)} as ${t.status === "done" ? "not done" : "done"}">${t.status === "done" ? "✓" : ""}</button>
+      <button class="check" data-act="toggle" aria-label="Mark ${escapeHTML(t.name)} as ${t.status === "done" ? "not done" : "done"}">${t.status === "done" ? icon("check") : ""}</button>
       <div class="t-body">
         <div class="t-name">${escapeHTML(t.name)}</div>
         <div class="t-meta">${escapeHTML(t.subject)} • ${dueLabel(t.due)} • ${capitalize(t.priority)}
@@ -290,8 +310,8 @@ function taskRowHTML(t) {
       </div>
       <span class="dot ${t.priority}" title="${capitalize(t.priority)} priority"></span>
       <div class="t-actions">
-        <a class="icon-btn" href="add-task.html?id=${t.id}" aria-label="Edit task" title="Edit">✎</a>
-        <button class="icon-btn" data-act="delete" aria-label="Delete task" title="Delete">🗑</button>
+        <a class="icon-btn" href="add-task.html?id=${t.id}" aria-label="Edit task" title="Edit">${icon("edit")}</a>
+        <button class="icon-btn" data-act="delete" aria-label="Delete task" title="Delete">${icon("trash")}</button>
       </div>
     </div>`;
 }
@@ -308,7 +328,7 @@ function bindTaskActions(container, onChange) {
     if (btn.dataset.act === "toggle") {
       const done = task.status !== "done";
       Store.update(id, { status: done ? "done" : "todo" });
-      showToast(done ? `✓ “${task.name}” completed` : `“${task.name}” moved back to To Do`);
+      showToast(done ? `“${task.name}” completed` : `“${task.name}” moved back to To Do`);
       onChange();
     }
     if (btn.dataset.act === "delete") {

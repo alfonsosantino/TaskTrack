@@ -40,6 +40,18 @@
 
 * { box-sizing: border-box; }
 
+/* Inline SVG icons */
+.ico {
+  width: 1.1em; height: 1.1em; flex: none;
+  fill: none; stroke: currentColor; stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+  vertical-align: -0.15em;
+}
+.brand-logo .ico { width: 20px; height: 20px; stroke-width: 2.6; }
+.nav-toggle .ico { width: 26px; height: 26px; display: block; }
+.task-item .check .ico { width: 14px; height: 14px; stroke-width: 3; }
+.reminder-icon { display: inline-flex; color: var(--orange); }
+
 html, body { margin: 0; padding: 0; }
 
 body {
@@ -418,7 +430,12 @@ main {
 .switch input:checked + .slider::before { transform: translateX(20px); }
 .takeaway { list-style: none; padding: 0; margin: 0; }
 .takeaway li { padding: 4px 0; }
-.takeaway li::before { content: "✓ "; color: var(--green); font-weight: 800; }
+.takeaway li::before {
+  content: ""; display: inline-block;
+  width: 6px; height: 11px; margin: 0 10px 2px 2px;
+  border: solid var(--green); border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
 .quote { text-align: center; font-weight: 800; font-size: 1.15rem; margin-top: 28px; }
 
 /* ---------- Modal & toast ---------- */
