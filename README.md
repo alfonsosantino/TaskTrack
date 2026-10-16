@@ -1,6 +1,6 @@
 <div align="center">
 
-# ✅ TaskTrack
+# TaskTrack
 
 **An Academic Task Management System for Students**
 
@@ -18,23 +18,23 @@ Group 6 • CPE 408 / CPE 31S1
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
-1. [Concept](#-concept)
-2. [Purpose](#-purpose)
-3. [Target Users](#-target-users)
-4. [Features](#-features)
-5. [Screenshots](#-screenshots)
-6. [How It Works](#-how-it-works)
-7. [Design Consistency](#-design-consistency-with-our-uiux-proposal)
-8. [Project Structure](#-project-structure)
-9. [How to Run](#-how-to-run)
-10. [Technologies Used](#-technologies-used)
-11. [Group Members](#-group-members)
+1. [Concept](#concept)
+2. [Purpose](#purpose)
+3. [Target Users](#target-users)
+4. [Features](#features)
+5. [Screenshots](#screenshots)
+6. [How It Works](#how-it-works)
+7. [Design Consistency](#design-consistency-with-our-uiux-proposal)
+8. [Project Structure](#project-structure)
+9. [How to Run](#how-to-run)
+10. [Technologies Used](#technologies-used)
+11. [Group Members](#group-members)
 
 ---
 
-## 💡 Concept
+## Concept
 
 **TaskTrack** is a web-based task manager built for college and university students. It turns scattered school requirements (assignments, projects, quizzes, exams, and reports from different subjects) into **one organized task list**.
 
@@ -47,7 +47,7 @@ The app follows four simple steps:
 | 3 | **Remind** | Get reminders before deadlines. |
 | 4 | **Complete** | Mark finished tasks and monitor progress. |
 
-## 🎯 Purpose
+## Purpose
 
 Students often struggle to manage many academic responsibilities at once:
 
@@ -57,7 +57,7 @@ Students often struggle to manage many academic responsibilities at once:
 
 **Goal:** give students one simple place to organize, prioritize, and track their academic tasks, so they miss fewer deadlines and work more productively.
 
-## 👥 Target Users
+## Target Users
 
 | Primary users | What they need |
 |---|---|
@@ -66,22 +66,22 @@ Students often struggle to manage many academic responsibilities at once:
 | Students managing assignments and projects | Priority indicators |
 | Students who want better time management | Reminders and simple progress tracking |
 
-## ✨ Features
+## Features
 
 | Feature | Description |
 |---|---|
-| 📝 **Task Creation** | Add assignments, projects, quizzes, exams, and other tasks with name, subject, type, due date, priority, and description. The form checks required fields before saving. |
-| ✏️ **Edit & Delete** | Update any task or remove it (with a confirmation dialog). |
-| 📅 **Deadline Tracker / Calendar** | Monthly calendar showing every deadline as a color-coded chip. Busy days (3 or more tasks) are highlighted. Click a day to see its tasks or add a new one on that date. |
-| ⏰ **Reminders** | An in-app reminder banner lists overdue tasks and tasks due within your chosen reminder window. Optional browser notifications are available too. |
-| 🚦 **Priority Levels** | Label tasks **High** (orange), **Medium** (blue), or **Low** (green). |
-| 📊 **Progress Tracking** | A board with **To Do / In Progress / Completed** columns. Move cards with drag-and-drop or arrow buttons. Shows your weekly completion percentage. |
-| 🏠 **Dashboard** | Greeting, today's focus tasks, pending / completed / urgent counters, overall progress bar, plus search and filters for all tasks. |
-| 👤 **Profile & Settings** | Edit name, program, and year level. Set the default reminder time, switch between light and dark theme, and turn notifications on or off. |
-| 💾 **Saved Data** | Tasks and settings are saved in the browser (`localStorage`), so they are still there after a page refresh. |
-| 📱 **Responsive Design** | Works on desktop, tablet, and mobile, with a collapsible menu on small screens. |
+| **Task Creation** | Add assignments, projects, quizzes, exams, and other tasks with name, subject, type, due date, priority, and description. The form checks required fields before saving. |
+| **Edit & Delete** | Update any task or remove it (with a confirmation dialog). |
+| **Deadline Tracker / Calendar** | Monthly calendar showing every deadline as a color-coded chip. Busy days (3 or more tasks) are highlighted. Click a day to see its tasks or add a new one on that date. |
+| **Reminders** | An in-app reminder banner lists overdue tasks and tasks due within your chosen reminder window. Optional browser notifications are available too. |
+| **Priority Levels** | Label tasks **High** (orange), **Medium** (blue), or **Low** (green). |
+| **Progress Tracking** | A board with **To Do / In Progress / Completed** columns. Move cards with drag-and-drop or arrow buttons. Shows your weekly completion percentage. |
+| **Dashboard** | Greeting, today's focus tasks, pending / completed / urgent counters, overall progress bar, plus search and filters for all tasks. |
+| **Profile & Settings** | Edit name, program, and year level. Set the default reminder time, switch between light and dark theme, and turn notifications on or off. |
+| **Saved Data** | Tasks and settings are saved in the browser (`localStorage`), so they are still there after a page refresh. |
+| **Responsive Design** | Works on desktop, tablet, and mobile, with a collapsible menu on small screens. |
 
-## 🖼️ Screenshots
+## Screenshots
 
 ### 1. Dashboard
 A quick overview of what the student needs to do today: greeting, today's tasks, counters, progress bar, and a reminder banner.
@@ -118,7 +118,7 @@ Student details, academic preferences, reminder time, and theme settings.
 |---|---|---|
 | <img src="assets/screenshots/mobile-dashboard.png" alt="Mobile dashboard" width="250"> | <img src="assets/screenshots/mobile-menu.png" alt="Mobile menu" width="250"> | <img src="assets/screenshots/mobile-calendar.png" alt="Mobile calendar" width="250"> |
 
-## ⚙️ How It Works
+## How It Works
 
 ```
  ┌──────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
@@ -136,7 +136,7 @@ Student details, academic preferences, reminder time, and theme settings.
 
 > **Note:** On first launch TaskTrack loads sample tasks (the same ones shown in our UI/UX design) so the app can be explored right away. Use **Profile → Reset to sample tasks** to restore them at any time.
 
-## 🎨 Design Consistency with Our UI/UX Proposal
+## Design Consistency with Our UI/UX Proposal
 
 The front end follows the layout, navigation, and look of our approved UI/UX design:
 
@@ -163,7 +163,7 @@ The front end follows the layout, navigation, and look of our approved UI/UX des
 
 </details>
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 TaskTrack/
@@ -187,7 +187,7 @@ TaskTrack/
 └── README.md
 ```
 
-## ▶️ How to Run
+## How to Run
 
 No installation or build step is needed.
 
@@ -207,7 +207,7 @@ Or use the **Live Server** extension in VS Code.
 **Option 3: GitHub Pages**
 Go to *Settings → Pages*, choose the `main` branch and the `/ (root)` folder, then save. The site will be live at `https://alfonsosantino.github.io/TaskTrack/`.
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **HTML5:** semantic page structure and forms
 - **CSS3:** custom properties (design tokens), Flexbox, Grid, media queries, dark theme
@@ -216,7 +216,7 @@ Go to *Settings → Pages*, choose the `main` branch and the `/ (root)` folder, 
 
 No frameworks or external libraries are used.
 
-## 👨‍💻 Group Members
+## Group Members
 
 **Group 6**
 
