@@ -222,7 +222,7 @@ No frameworks or external libraries are used.
 
 - Mhelvin Jay Abiog
 - John Marque Atienza
-- Santino Ragadio Alfonso
+- Alfonso Santino Ragadio
 - Ramiel Jacob Sepe
 - Angel Nick Ulangca
 - Marcy Angelo Villegas
