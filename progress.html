@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress • TaskTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main id="main">
+    <section class="page-head">
+      <h1>Progress Tracking</h1>
+      <p>A clear status view helps you know what remains. Drag cards between columns or use the arrows.</p>
+    </section>
+
+    <div class="board">
+      <section class="card accent orange column" data-status="todo" aria-labelledby="col-todo">
+        <h3 id="col-todo">TO DO</h3>
+        <div class="col-body"></div>
+        <div class="count"></div>
+      </section>
+      <section class="card accent column" data-status="progress" aria-labelledby="col-progress">
+        <h3 id="col-progress">IN PROGRESS</h3>
+        <div class="col-body"></div>
+        <div class="count"></div>
+      </section>
+      <section class="card accent green column" data-status="done" aria-labelledby="col-done">
+        <h3 id="col-done">COMPLETED</h3>
+        <div class="col-body"></div>
+        <div class="count"></div>
+      </section>
+    </div>
+
+    <div class="weekly">
+      Weekly completion: <span id="weekly-pct">0%</span>
+      <div class="bar"><span id="weekly-fill" style="width:0"></span></div>
+      <p class="t-meta" id="weekly-note" style="font-weight:500;margin-top:8px"></p>
+    </div>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script src="js/progress.js"></script>
+</body>
+</html>

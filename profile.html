@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile &amp; Settings • TaskTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main id="main">
+    <section class="page-head">
+      <h1>Profile &amp; Settings</h1>
+      <p>Your student details, academic preferences, and app settings.</p>
+    </section>
+
+    <div class="profile-hero">
+      <div class="avatar" id="avatar">SU</div>
+      <div>
+        <h2 id="hero-name">Student User</h2>
+        <p id="hero-sub">Computer Engineering • 2nd Year</p>
+      </div>
+      <div style="margin-left:auto;text-align:right">
+        <div style="font-size:1.8rem;font-weight:800" id="hero-done">0</div>
+        <p>tasks completed</p>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+      <!-- Profile -->
+      <form class="card accent" id="profile-form">
+        <h3>Profile</h3>
+        <div class="form-row">
+          <label class="lbl" for="p-name">Name:</label>
+          <input type="text" id="p-name" maxlength="50" required>
+        </div>
+        <div class="form-row">
+          <label class="lbl" for="p-program">Program:</label>
+          <input type="text" id="p-program" maxlength="60">
+        </div>
+        <div class="form-row">
+          <label class="lbl" for="p-year">Year Level:</label>
+          <select id="p-year">
+            <option>1st Year</option><option>2nd Year</option><option>3rd Year</option>
+            <option>4th Year</option><option>5th Year</option>
+          </select>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn">SAVE PROFILE</button>
+        </div>
+      </form>
+
+      <!-- Settings -->
+      <section class="card accent green">
+        <h3>Academic Preferences &amp; Settings</h3>
+        <div class="form-row">
+          <label class="lbl" for="s-reminder">Default reminder:</label>
+          <select id="s-reminder">
+            <option value="0">On the due date</option>
+            <option value="1">1 day before</option>
+            <option value="2">2 days before</option>
+            <option value="3">3 days before</option>
+            <option value="7">1 week before</option>
+          </select>
+        </div>
+        <div class="switch-row">
+          <span>🌙 Dark theme</span>
+          <label class="switch"><input type="checkbox" id="s-theme" aria-label="Dark theme"><span class="slider"></span></label>
+        </div>
+        <div class="switch-row">
+          <span>⏰ Deadline reminders</span>
+          <label class="switch"><input type="checkbox" id="s-notify" aria-label="Deadline reminders"><span class="slider"></span></label>
+        </div>
+        <div class="switch-row">
+          <span>🔔 Browser notifications</span>
+          <button class="btn ghost small" id="s-browser">ENABLE</button>
+        </div>
+        <div class="switch-row">
+          <span>♻️ Reset to sample tasks</span>
+          <button class="btn danger small" id="s-reset">RESET</button>
+        </div>
+      </section>
+    </div>
+
+    <section class="card accent orange" style="margin-top:20px">
+      <h3>Key Takeaway</h3>
+      <p style="text-align:center;margin-top:0">TaskTrack is designed to make academic organization simple.</p>
+      <ul class="takeaway grid grid-3" style="gap:4px 20px">
+        <li>One place for tasks</li>
+        <li>Clear deadlines</li>
+        <li>Smart priorities</li>
+        <li>Progress visibility</li>
+        <li>Less stress, better planning</li>
+      </ul>
+    </section>
+
+    <p class="quote">“Track Your Tasks. Take Control of Your Time.”</p>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

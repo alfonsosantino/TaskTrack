@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard • TaskTrack</title>
+  <meta name="description" content="TaskTrack — an academic task management system for students.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main id="main">
+    <section class="page-head">
+      <h1>Dashboard</h1>
+      <p>A quick overview of what you need to do today.</p>
+    </section>
+
+    <div id="reminder-slot"></div>
+
+    <div class="dash-layout">
+      <!-- Left: Today's tasks (Design Example 1) -->
+      <section class="card accent" aria-labelledby="today-title">
+        <div class="greeting"><strong id="greeting">Good morning!</strong> 👋</div>
+        <div class="subtle-title" id="today-title">Today's Tasks</div>
+
+        <div class="task-list" id="today-list"></div>
+
+        <div class="progress-row">
+          <span class="lbl">Progress</span>
+          <div class="bar" role="progressbar" aria-label="Tasks completed" aria-valuemin="0" aria-valuemax="100" id="progress-bar"><span id="progress-fill" style="width:0"></span></div>
+          <strong id="progress-text">0 / 0 tasks completed</strong>
+        </div>
+      </section>
+
+      <!-- Right: stats + all tasks -->
+      <section>
+        <div class="stats">
+          <div class="stat orange"><div class="num" id="stat-urgent">0</div><div class="lbl">Urgent</div></div>
+          <div class="stat"><div class="num" id="stat-pending">0</div><div class="lbl">Pending</div></div>
+          <div class="stat green"><div class="num" id="stat-done">0</div><div class="lbl">Completed</div></div>
+        </div>
+
+        <div class="card accent green">
+          <h3>All Tasks</h3>
+          <div class="toolbar">
+            <input type="search" id="search" placeholder="Search tasks…" aria-label="Search tasks">
+            <select id="filter-priority" aria-label="Filter by priority">
+              <option value="all">All priorities</option>
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+            <select id="filter-status" aria-label="Filter by status">
+              <option value="active">Not completed</option>
+              <option value="all">All statuses</option>
+              <option value="done">Completed</option>
+            </select>
+          </div>
+          <div class="task-list" id="all-list"></div>
+          <div style="text-align:center;margin-top:16px">
+            <a class="btn" href="add-task.html">＋ NEW TASK</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
